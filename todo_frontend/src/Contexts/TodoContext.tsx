@@ -1,7 +1,8 @@
-import { createContext, useState, useContext, ReactNode, FC } from "react";
+import { createContext, useState, ReactNode, FC } from "react";
 import {
   postTodoItem,
   deleteTodoItem,
+  updateTodoItem,
 } from "../services/todo-item-post-services";
 
 interface TodoItem {
@@ -16,6 +17,10 @@ interface TodoContextType {
   setTodoList: React.Dispatch<React.SetStateAction<TodoItem[]>>;
   addTodoItem: (newItem: Omit<TodoItem, "id">) => Promise<void>;
   deleteTodoItem: (itemId: string) => Promise<void>;
+  updateTodoItem: (
+    itemId: string,
+    todoData: Partial<TodoItem>
+  ) => Promise<void>;
 }
 
 export const TodoContext = createContext<TodoContextType | undefined>(
@@ -47,6 +52,22 @@ export const TodoProvider: FC<TodoProviderProps> = ({ children }) => {
     }
   };
 
+  const updateTodoItemContext = async (
+    itemId: string,
+    todoData: Partial<TodoItem>
+  ): Promise<void> => {
+    try {
+      const updatedItem = await updateTodoItem(itemId, todoData);
+      setTodoList((currentList) =>
+        currentList.map((item) =>
+          item.id === itemId ? { ...item, ...updatedItem } : item
+        )
+      );
+    } catch (error) {
+      console.error("Error updating todo item in context:", error);
+    }
+  };
+
   return (
     <TodoContext.Provider
       value={{
@@ -54,6 +75,7 @@ export const TodoProvider: FC<TodoProviderProps> = ({ children }) => {
         setTodoList,
         addTodoItem,
         deleteTodoItem: deleteTodoItemContext,
+        updateTodoItem: updateTodoItemContext,
       }}
     >
       {children}

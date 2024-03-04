@@ -1,0 +1,17 @@
+29/02/24
+before going back to back end:
+have new item submit cause a rerender.  *DONE
+implement delete button functionality.	*DONE
+
+after class:
+move fetch items to context from todolist component *DONE
+
+04/03/24
+todo project 4hr - remember git hub push
+study basic kotlin 1hr 
+study design patterns 1hr 
+what is a microservice
+generic java stuff
+do your first post course project from a post course project in the post-course repo
+
+deadline for making cv less shit is friday.

@@ -44,15 +44,23 @@ export const deleteTodoItem = async (itemId) => {
   }
 };
 
-export const updateTodoItem = async () => {
+export const updateTodoItem = async (itemId, todoData) => {
   try {
     const response = await fetch(`http://localhost:8080/items/${itemId}`, {
-      method: "Update",
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(todoData),
     });
+
     if (!response.ok) {
       throw new Error("Failed to update To-do item");
     }
-  } catch {
+
+    const data = await response.json();
+    return data;
+  } catch (error) {
     console.error("Error updating To-do Item:", error.message);
     throw error;
   }
