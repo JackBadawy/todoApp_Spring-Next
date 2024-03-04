@@ -10,6 +10,7 @@ interface TodoItem {
   title: string;
   content: string;
   category: string;
+  isTicked: boolean;
 }
 
 interface TodoContextType {

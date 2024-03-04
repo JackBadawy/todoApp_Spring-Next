@@ -6,6 +6,7 @@ const Form = () => {
     title: "",
     content: "",
     category: "",
+    isTicked: false,
   });
 
   const { addTodoItem } = useTodoContext();
@@ -18,7 +19,7 @@ const Form = () => {
     e.preventDefault();
     try {
       await addTodoItem(formData);
-      setFormData({ title: "", content: "", category: "" });
+      setFormData({ title: "", content: "", category: "", isTicked: false });
     } catch (error) {
       console.error("Failed to create To-do Item", error);
     }

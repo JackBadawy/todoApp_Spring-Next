@@ -49,6 +49,7 @@ const TodoList = () => {
     };
 
     fetchTodoList();
+    console.log(todoList);
   }, []);
 
   return (
@@ -90,6 +91,9 @@ const TodoList = () => {
                   </div>
                 )}
                 <div className="item__btnbox">
+                  <button className="item__tickbtn">
+                    isTicked: {todoItem.isTicked ? "true" : "false"}
+                  </button>
                   <button
                     className="item__dltbtn"
                     onClick={() => handleDelete(todoItem.id)}
