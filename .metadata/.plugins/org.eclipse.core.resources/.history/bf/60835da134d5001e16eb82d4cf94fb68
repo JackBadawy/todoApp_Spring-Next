@@ -1,0 +1,13 @@
+package implementation;
+
+public class WhileL {
+
+public static void myWhileLoop() {
+	int i = 0;
+	while(i < 10) {
+	System.out.printf("While" + i);
+	i++;
+	}
+} 
+	
+}

@@ -1,0 +1,12 @@
+package implementation;
+
+public class DoWhileL {
+public static void myDoWhileloop() {
+	int j = 0;
+	do while (j < 10) {
+		System.out.println("DoWhile: " + j);
+		j++;
+	}
+	
+}
+}

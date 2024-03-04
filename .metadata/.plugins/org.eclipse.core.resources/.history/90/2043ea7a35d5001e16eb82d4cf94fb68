@@ -1,0 +1,8 @@
+package implementation;
+
+public class Main {
+public static void main(String[] args) {
+	// just a little code to cement while and do while knowledge
+	WhileL.myWhileLoop();
+}
+}

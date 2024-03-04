@@ -1,0 +1,33 @@
+package io.nology.todo_backend.posts;
+
+import jakarta.validation.constraints.Pattern;
+
+public class UpdateToDoItemDTO {
+	
+	@Pattern(regexp = "^(?=\\S).*$", message="title cannot be empty")
+	private String title;
+	
+	@Pattern(regexp = "^(?=\\S).*$", message="content cannot be empty")
+	private String content;
+	
+	@Pattern(regexp = "^(?=\\S).*$", message="content cannot be empty")
+	private String category;
+	
+	public String getTitle() {
+		return title;
+	}
+
+	public String getContent() {
+		return content;
+	}
+
+	public void setTitle(String title) {
+		this.title = title;
+	}
+
+	public void setContent(String content) {
+		this.content = content;
+	}
+
+	
+}
