@@ -34,4 +34,14 @@
   &__editbtn {
     height: 32px;
   }
+  &__tckbox {
+    height: 32px;
+    width: 32px;
+    background-color: whitesmoke;
+    color: black;
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 }

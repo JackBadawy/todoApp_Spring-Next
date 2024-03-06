@@ -1,6 +1,8 @@
 import { useState, useEffect } from "react";
 import "./styles/TodoItems.scss";
 import { useTodoContext } from "./Contexts/UseTodoContext";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCheck } from "@fortawesome/free-solid-svg-icons";
 
 const TodoList = () => {
   const { todoList, setTodoList, deleteTodoItem, updateTodoItem } =
@@ -14,6 +16,16 @@ const TodoList = () => {
 
   const handleDelete = async (id) => {
     await deleteTodoItem(id);
+  };
+
+  const toggleIsTicked = async (todoItem) => {
+    console.log("Toggling isTicked for item:", todoItem.id);
+    const updatedIsTicked = !todoItem.ticked;
+    console.log("New isTicked value:", updatedIsTicked);
+    await updateTodoItem(todoItem.id, {
+      ...todoItem,
+      ticked: updatedIsTicked,
+    });
   };
 
   const handleEdit = (todoItem) => {
@@ -49,7 +61,7 @@ const TodoList = () => {
     };
 
     fetchTodoList();
-    console.log(todoList);
+    console.log("todoList", todoList);
   }, []);
 
   return (
@@ -91,9 +103,18 @@ const TodoList = () => {
                   </div>
                 )}
                 <div className="item__btnbox">
-                  <button className="item__tickbtn">
+                  {/* <button className="item__tickbtn">
                     isTicked: {todoItem.isTicked ? "true" : "false"}
-                  </button>
+                  </button> */}
+                  <div
+                    className="item__tckbox"
+                    onClick={() => {
+                      console.log(`Clicked tick box for item ${todoItem.id}`);
+                      toggleIsTicked(todoItem);
+                    }}
+                  >
+                    {todoItem.ticked ? <FontAwesomeIcon icon={faCheck} /> : ""}
+                  </div>
                   <button
                     className="item__dltbtn"
                     onClick={() => handleDelete(todoItem.id)}
