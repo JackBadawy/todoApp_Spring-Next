@@ -96,7 +96,11 @@ const TodoList = () => {
                     </button>
                   </div>
                 ) : (
-                  <div className="item__txtbox">
+                  <div
+                    className={`item__txtbox ${
+                      todoItem.ticked ? "item__struck-through" : ""
+                    }`}
+                  >
                     <h3>{todoItem.title}</h3>
                     <p>{todoItem.content}</p>
                     <p>Category: {todoItem.category}</p>
