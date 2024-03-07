@@ -6,7 +6,7 @@ const Form = () => {
     title: "",
     content: "",
     category: "",
-    isTicked: false,
+    ticked: false,
   });
 
   const { addTodoItem } = useTodoContext();
@@ -17,11 +17,18 @@ const Form = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    if (!formData.title || !formData.content || !formData.category) {
+      alert("Please fill out all required fields.");
+      return;
+    }
+
     try {
       await addTodoItem(formData);
-      setFormData({ title: "", content: "", category: "", isTicked: false });
+      setFormData({ title: "", content: "", category: "", ticked: false });
     } catch (error) {
       console.error("Failed to create To-do Item", error);
+      alert("Failed to create the To-do Item. Please try again.");
     }
   };
 

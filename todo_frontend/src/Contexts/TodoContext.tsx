@@ -5,12 +5,12 @@ import {
   updateTodoItem,
 } from "../services/todo-item-post-services";
 
-interface TodoItem {
+export interface TodoItem {
   id: string; //potentially make optional
   title: string;
   content: string;
   category: string;
-  isTicked: boolean;
+  ticked: boolean;
 }
 
 interface TodoContextType {

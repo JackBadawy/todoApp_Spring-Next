@@ -3,11 +3,12 @@ import "./styles/TodoItems.scss";
 import { useTodoContext } from "./Contexts/UseTodoContext";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCheck } from "@fortawesome/free-solid-svg-icons";
+import { TodoItem } from "./Contexts/TodoContext";
 
 const TodoList = () => {
   const { todoList, setTodoList, deleteTodoItem, updateTodoItem } =
     useTodoContext();
-  const [editItemId, setEditItemId] = useState(null);
+  const [editItemId, setEditItemId] = useState<string | null>(null);
   const [editFormData, setEditFormData] = useState({
     title: "",
     content: "",
@@ -18,7 +19,7 @@ const TodoList = () => {
     await deleteTodoItem(id);
   };
 
-  const toggleIsTicked = async (todoItem) => {
+  const toggleIsTicked = async (todoItem: TodoItem) => {
     console.log("Toggling isTicked for item:", todoItem.id);
     const updatedIsTicked = !todoItem.ticked;
     console.log("New isTicked value:", updatedIsTicked);
@@ -28,7 +29,7 @@ const TodoList = () => {
     });
   };
 
-  const handleEdit = (todoItem) => {
+  const handleEdit = (todoItem: TodoItem) => {
     setEditItemId(todoItem.id);
     setEditFormData({
       title: todoItem.title,
@@ -37,9 +38,27 @@ const TodoList = () => {
     });
   };
 
-  const handleUpdate = async (id) => {
-    await updateTodoItem(id, editFormData);
-    setEditItemId(null);
+  const handleUpdate = async (id: string) => {
+    if (
+      !editFormData.title ||
+      !editFormData.content ||
+      !editFormData.category
+    ) {
+      alert("Please fill out all required fields before saving.");
+      return;
+    }
+
+    try {
+      await updateTodoItem(id, {
+        title: editFormData.title,
+        content: editFormData.content,
+        category: editFormData.category,
+      });
+      setEditItemId(null);
+    } catch (error) {
+      console.error("Failed to update To-do Item", error);
+      alert("Failed to update the To-do Item. Please try again.");
+    }
   };
 
   const handleChange = (e) => {
