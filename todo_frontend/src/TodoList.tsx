@@ -87,7 +87,7 @@ const TodoList = () => {
     <div className="todo">
       <h2>Todo Items</h2>
       <ul className="todo__list">
-        {!todoList
+        {todoList.length === 0
           ? "No Blogs"
           : todoList.map((todoItem) => (
               <li key={todoItem.id} className="todo__list__item">
