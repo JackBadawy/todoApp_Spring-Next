@@ -87,6 +87,11 @@ const TodoList = () => {
     <div className="todo">
       <h2>Todo Items</h2>
       <ul className="todo__list">
+        <button>
+          <a href="http://localhost:8080/swagger-ui/index.html#/">
+            Documentation
+          </a>
+        </button>
         {todoList.length === 0
           ? "No Blogs"
           : todoList.map((todoItem) => (

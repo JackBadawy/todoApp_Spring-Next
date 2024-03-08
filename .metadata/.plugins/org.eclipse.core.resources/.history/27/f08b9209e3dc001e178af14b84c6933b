@@ -1,0 +1,15 @@
+package io.nology.todo_backend.posts;
+
+import static org.junit.jupiter.api.Assertions.*;
+
+import org.junit.jupiter.api.Test;
+import org.springframework.boot.test.web.client.TestRestTemplate;
+
+class LoggerTest {
+
+//	@Test
+//	public void givenRequest_whenFetchTaxiFareRateCard_thanOK() {
+//	
+//	}
+
+}

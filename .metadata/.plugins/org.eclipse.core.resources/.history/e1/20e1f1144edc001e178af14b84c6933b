@@ -1,0 +1,20 @@
+package io.nology.todo_backend.posts;
+
+import java.io.IOException;
+import java.io.InputStream;
+
+import org.springframework.data.util.StreamUtils;
+
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletRequestWrapper;
+
+public class CachedHttpServletRequest extends HttpServletRequestWrapper {
+
+    private byte[] cachedPayload;
+
+    public CachedHttpServletRequest(HttpServletRequest request) throws IOException {
+        super(request);
+        InputStream requestInputStream = request.getInputStream();
+        this.cachedPayload = StreamUtils.copyToByteArray(requestInputStream);
+    }
+}

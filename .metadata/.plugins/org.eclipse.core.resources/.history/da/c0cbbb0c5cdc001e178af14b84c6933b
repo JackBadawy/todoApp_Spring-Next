@@ -1,0 +1,5 @@
+package io.nology.todo_backend.posts;
+
+public class RequestLoggingFilterConfig {
+
+}
