@@ -578,3 +578,14 @@ Contains: Missing org.webjars:swagger-ui:jar:sources:5.10.3
 !MESSAGE Save operation warnings.
 !SUBENTRY 1 org.eclipse.core.resources 2 234 2024-03-08 11:39:52.394
 !MESSAGE The project description file (.project) for 'whileAndDoWhileDemo' was missing.  This file contains important information about the project.  A new project description file has been created, but some information about the project may have been lost.
+
+!ENTRY org.eclipse.ui.ide 4 4 2024-03-08 12:35:14.445
+!MESSAGE Problems saving workspace
+
+!ENTRY org.eclipse.ui.ide 2 1 2024-03-08 12:35:14.446
+!MESSAGE Problems occurred while trying to save the state of the workbench.
+!SUBENTRY 1 org.eclipse.core.resources 2 234 2024-03-08 12:35:14.446
+!MESSAGE The project description file (.project) for 'whileAndDoWhileDemo' was missing.  This file contains important information about the project.  A new project description file has been created, but some information about the project may have been lost.
+
+!ENTRY org.eclipse.core.resources 2 10035 2024-03-08 12:35:15.283
+!MESSAGE The workspace will exit with unsaved changes in this session.
