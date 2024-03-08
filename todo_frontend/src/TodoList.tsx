@@ -131,9 +131,6 @@ const TodoList = () => {
                   </div>
                 )}
                 <div className="item__btnbox">
-                  {/* <button className="item__tickbtn">
-                    isTicked: {todoItem.isTicked ? "true" : "false"}
-                  </button> */}
                   <div
                     className="item__tckbox"
                     onClick={() => {
