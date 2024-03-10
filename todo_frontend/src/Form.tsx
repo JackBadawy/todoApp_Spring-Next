@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useTodoContext } from "./Contexts/UseTodoContext";
+import "./styles/Form.scss";
 
 const Form = () => {
   const [formData, setFormData] = useState({
@@ -33,37 +34,49 @@ const Form = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <div>
-        <label htmlFor="title">Title:</label>
+    <form className="form__container" onSubmit={handleSubmit}>
+      <h2 className="form__heading">New Item:</h2>
+      <div className="form__item">
+        <label htmlFor="title" className="form__label">
+          Title:
+        </label>
         <input
           type="text"
           id="title"
           name="title"
+          className="form__input"
           value={formData.title}
           onChange={handleChange}
         />
       </div>
-      <div>
-        <label htmlFor="content">Content:</label>
+      <div className="form__item">
+        <label htmlFor="content" className="form__label">
+          Content:
+        </label>
         <textarea
           id="content"
           name="content"
+          className="form__input"
           value={formData.content}
           onChange={handleChange}
         />
       </div>
-      <div>
-        <label htmlFor="category">Category:</label>
+      <div className="form__item">
+        <label htmlFor="category" className="form__label">
+          Category:
+        </label>
         <input
           type="text"
           id="category"
           name="category"
+          className="form__input"
           value={formData.category}
           onChange={handleChange}
         />
       </div>
-      <button type="submit">Submit</button>
+      <button type="submit" className="form__btn">
+        Submit
+      </button>
     </form>
   );
 };

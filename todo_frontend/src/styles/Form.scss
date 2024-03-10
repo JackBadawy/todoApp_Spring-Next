@@ -1,0 +1,51 @@
+@use "./Variables.scss";
+
+.form {
+  &__container {
+    background-color: Variables.$item-uncatagorized-bckclr;
+    color: Variables.$item-uncatagorized_txtclr;
+    display: flex;
+    flex-direction: column;
+    width: 320px;
+    justify-content: right;
+    align-items: right;
+    padding: 8px;
+    gap: 4px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 16px;
+    border-radius: 8px;
+  }
+  &__item {
+    display: flex;
+    justify-content: right;
+  }
+  &__label {
+    width: 80px;
+    text-align: right;
+  }
+  &__input {
+    width: 200px;
+  }
+  &__heading {
+    text-align: center;
+    text-decoration: underline;
+    margin: 0px;
+    margin-bottom: 8px;
+  }
+  &__btn {
+    border: none;
+    margin-top: 16px;
+    margin-left: 60px;
+    margin-right: 60px;
+    height: 40px;
+    border-radius: 16px;
+    font-size: larger;
+    font-weight: 700;
+    font-family: "Courier New", Courier, monospace;
+    &:hover {
+      background-color: rgb(151, 151, 151);
+      color: Variables.$item-uncatagorized_txtclr;
+    }
+  }
+}
