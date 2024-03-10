@@ -85,10 +85,13 @@ const TodoList = () => {
 
   return (
     <div className="todo">
-      <h2>Todo Items</h2>
+      <h2 className="todo__heading">Todo Items</h2>
       <ul className="todo__list">
-        <button>
-          <a href="http://localhost:8080/swagger-ui/index.html#/">
+        <button className="todo__docs">
+          <a
+            href="http://localhost:8080/swagger-ui/index.html#/"
+            className="todo__docs__link"
+          >
             Documentation
           </a>
         </button>

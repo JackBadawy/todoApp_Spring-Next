@@ -1,5 +1,26 @@
 @use "./Variables.scss";
 .todo {
+  &__heading {
+    text-align: center;
+    text-decoration: underline;
+  }
+  &__docs {
+    height: 24px;
+    border: none;
+    border-radius: 8px;
+
+    &__link {
+      text-decoration: none;
+      font-weight: 600;
+      &:visited {
+        color: black;
+      }
+    }
+    &:hover {
+      background-color: rgb(151, 151, 151);
+      color: Variables.$item-uncatagorized_txtclr;
+    }
+  }
   &__list {
     background-color: Variables.$todo-list-bckclr;
     color: Variables.$item-uncatagorized_txtclr;
